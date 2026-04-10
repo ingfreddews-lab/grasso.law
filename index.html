@@ -7,31 +7,13 @@
 <title>Studio Legale Avvocato Elena Grasso | Lucera</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap"></noscript>
-  
-  
-  
-  
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap"></noscript>
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=900&q=75&fm=webp&auto=format" fetchpriority="high">
 <style>
-
-
-
-
-
-  
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-
-
-
-
-
-
-
-
-  
 :root{
   --navy:#0D1B2A;
   --navy-mid:#152236;
@@ -53,37 +35,24 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--cream);color:var(--text);overflow-x:hidden;font-size:16px;line-height:1.6}
 
-/* ══ LANGUAGE PILL ══ */
-#lang-pill{
-  position:fixed;top:0;right:0;z-index:500;
-  display:flex;align-items:stretch;
-  background:var(--navy);
-  border-bottom-left-radius:6px;
-  overflow:hidden;
+.lang-pill{
+  display:flex;align-items:center;gap:1px;
+  margin-left:0.9rem;padding-left:0.9rem;
+  border-left:1px solid rgba(255,255,255,0.12);
 }
 .lbtn{
-  font-size:1rem;line-height:1;
-  padding:0.5rem 0.65rem;cursor:pointer;border:none;
-  background:transparent;
-  opacity:0.5;filter:grayscale(0.4);
-  transition:opacity 0.2s,filter 0.2s,background 0.2s;
+  padding:0.15rem 0.28rem;cursor:pointer;border:none;
+  background:transparent;opacity:0.4;filter:grayscale(0.5);
+  transition:opacity 0.2s,filter 0.2s;
   display:flex;align-items:center;justify-content:center;
-  position:relative;
+  position:relative;border-radius:2px;
 }
-.lbtn.on{opacity:1;filter:none;background:rgba(255,255,255,0.1)}
+.lbtn.on{opacity:1;filter:none;}
 .lbtn.on::after{
-  content:'';position:absolute;bottom:0;left:15%;right:15%;
+  content:'';position:absolute;bottom:-2px;left:0;right:0;
   height:2px;background:var(--gold);
 }
-.lbtn:not(.on):hover{opacity:0.75;filter:grayscale(0.2)}
-.lbtn[title]:hover::before{
-  content:attr(title);
-  position:absolute;top:calc(100% + 4px);right:0;
-  background:var(--navy);color:rgba(255,255,255,0.8);
-  font-family:var(--sans);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;
-  padding:0.25rem 0.55rem;white-space:nowrap;
-  pointer-events:none;
-}
+.lbtn:not(.on):hover{opacity:0.7;filter:grayscale(0.1)}
 
 /* ══ TOP BAR ══ */
 .topbar{
@@ -96,7 +65,9 @@ body{font-family:var(--sans);background:var(--cream);color:var(--text);overflow-
 }
 .topbar a{color:var(--gold-light);text-decoration:none;transition:opacity 0.2s}
 .topbar a:hover{opacity:0.8}
-.topbar-right{display:flex;gap:2rem;align-items:center}
+.topbar-right{display:flex;gap:1.2rem;align-items:center;flex-shrink:0}
+.topbar-email{display:none}
+@media(min-width:860px){.topbar-email{display:inline}}
 
 /* ══ NAV ══ */
 header{
@@ -748,6 +719,8 @@ footer{
 html[lang="it"] [data-lang="it"]{display:revert}
 html[lang="en"] [data-lang="en"]{display:revert}
 html[lang="pt"] [data-lang="pt"]{display:revert}
+html[lang="fr"] [data-lang="fr"]{display:revert}
+html[lang="ru"] [data-lang="ru"]{display:revert}
 
 /* ══ SCROLL REVEAL ══ */
 .reveal{
@@ -891,37 +864,23 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
 </head>
 <body>
 
-<!-- LANG PILL -->
-<div id="lang-pill">
-  <button class="lbtn on" id="btn-it" onclick="setLang('it')" title="Italiano"><svg width="22" height="16" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg" aria-label="Italiano">
-  <rect width="7.33" height="16" fill="#009246"/>
-  <rect x="7.33" width="7.34" height="16" fill="#fff"/>
-  <rect x="14.67" width="7.33" height="16" fill="#ce2b37"/>
-</svg></button>
-  <button class="lbtn" id="btn-en" onclick="setLang('en')" title="English"><svg width="22" height="16" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg" aria-label="English">
-  <rect width="22" height="16" fill="#012169"/>
-  <path d="M0,0 L22,16 M22,0 L0,16" stroke="#fff" stroke-width="3.2"/>
-  <path d="M0,0 L22,16 M22,0 L0,16" stroke="#C8102E" stroke-width="2"/>
-  <path d="M11,0 V16 M0,8 H22" stroke="#fff" stroke-width="5.3"/>
-  <path d="M11,0 V16 M0,8 H22" stroke="#C8102E" stroke-width="3.2"/>
-</svg></button>
-  <button class="lbtn" id="btn-pt" onclick="setLang('pt')" title="Português"><svg width="22" height="16" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg" aria-label="Português">
-  <rect width="22" height="16" fill="#009c3b"/>
-  <polygon points="11,1.5 21,8 11,14.5 1,8" fill="#FFDF00"/>
-  <circle cx="11" cy="8" r="3.8" fill="#002776"/>
-  <path d="M7.3,6.5 Q11,5 14.7,6.5" stroke="#fff" stroke-width="0.7" fill="none"/>
-</svg></button>
-</div>
-
 <!-- TOP BAR -->
 <div class="topbar">
   <div data-lang="it">Studio Legale Avvocato Elena Grasso — Lucera (FG) · Puglia, Italia</div>
   <div data-lang="en">Law Firm Avvocato Elena Grasso — Lucera (FG) · Puglia, Italy</div>
   <div data-lang="pt">Escritório de Advocacia Elena Grasso — Lucera (FG) · Puglia, Itália</div>
+  <div data-lang="fr">Cabinet d'Avocats Elena Grasso — Lucera (FG) · Pouilles, Italie</div>
+  <div data-lang="ru">Юридическая фирма Елена Грассо — Лучера (FG) · Апулия, Италия</div>
   <div class="topbar-right">
     <span><a href="tel:+393387021568">+39 338 702 1568</a></span>
-    <span><a href="mailto:grasso@grasso.law">grasso@grasso.law&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
-     
+    <span class="topbar-email"><a href="/cdn-cgi/l/email-protection#3a5d485b4949557a5d485b49495514565b4d"><span class="__cf_email__" data-cfemail="fd9a8f9c8e8e92bd9a8f9c8e8e92d3919c8a">[email&#160;protected]</span></a></span>
+    <div class="lang-pill">
+      <button class="lbtn on" id="btn-it" onclick="setLang('it')" title="Italiano"><svg width="20" height="14" viewBox="0 0 20 14"><rect width="6.67" height="14" fill="#009246"/><rect x="6.67" width="6.66" height="14" fill="#fff"/><rect x="13.33" width="6.67" height="14" fill="#ce2b37"/></svg></button>
+      <button class="lbtn" id="btn-en" onclick="setLang('en')" title="English"><svg width="20" height="14" viewBox="0 0 20 14"><rect width="20" height="14" fill="#012169"/><path d="M0,0 L20,14 M20,0 L0,14" stroke="#fff" stroke-width="2.8"/><path d="M0,0 L20,14 M20,0 L0,14" stroke="#C8102E" stroke-width="1.8"/><path d="M10,0 V14 M0,7 H20" stroke="#fff" stroke-width="4.7"/><path d="M10,0 V14 M0,7 H20" stroke="#C8102E" stroke-width="2.8"/></svg></button>
+      <button class="lbtn" id="btn-pt" onclick="setLang('pt')" title="Português"><svg width="20" height="14" viewBox="0 0 20 14"><rect width="20" height="14" fill="#009c3b"/><polygon points="10,1.2 19,7 10,12.8 1,7" fill="#FFDF00"/><circle cx="10" cy="7" r="3.3" fill="#002776"/><path d="M6.8,5.7 Q10,4.4 13.2,5.7" stroke="#fff" stroke-width="0.7" fill="none"/></svg></button>
+      <button class="lbtn" id="btn-fr" onclick="setLang('fr')" title="Français"><svg width="20" height="14" viewBox="0 0 20 14"><rect width="6.67" height="14" fill="#002395"/><rect x="6.67" width="6.66" height="14" fill="#fff"/><rect x="13.33" width="6.67" height="14" fill="#ED2939"/></svg></button>
+      <button class="lbtn" id="btn-ru" onclick="setLang('ru')" title="Русский"><svg width="20" height="14" viewBox="0 0 20 14"><rect width="20" height="14" fill="#fff"/><rect y="4.67" width="20" height="4.66" fill="#0039A6"/><rect y="9.33" width="20" height="4.67" fill="#D52B1E"/></svg></button>
+    </div>
   </div>
 </div>
 
@@ -932,18 +891,25 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
       <span class="logo-name">Studio Legale Avv. Elena Grasso</span>
       <span class="logo-sub" data-lang="it">Fondato a Lucera nel 1996</span>
       <span class="logo-sub" data-lang="en">Established in Lucera, 1996</span>
+      <span class="logo-sub" style="margin-top:0.3rem" data-lang="pt">Fundado em Lucera, 1996</span>
+      <span class="logo-sub" style="margin-top:0.3rem" data-lang="fr">Fondé à Lucera, 1996</span>
+      <span class="logo-sub" style="margin-top:0.3rem" data-lang="ru">Основана в Лучере, 1996</span>
       <span class="logo-sub" data-lang="pt">Fundado em Lucera, 1996</span>
+      <span class="logo-sub" data-lang="fr">Fondé à Lucera, 1996</span>
+      <span class="logo-sub" data-lang="ru">Основана в Лучере, 1996</span>
     </a>
     <nav>
       <ul id="nav-ul">
-        <li><a href="#studio" data-lang="it">Lo Studio</a><a href="#studio" data-lang="en">The Firm</a><a href="#studio" data-lang="pt">O Escritório</a></li>
-        <li><a href="#aree" data-lang="it">Aree di Pratica</a><a href="#aree" data-lang="en">Practice Areas</a><a href="#aree" data-lang="pt">Áreas de Atuação</a></li>
-        <li><a href="#contatti" data-lang="it">Contatti</a><a href="#contatti" data-lang="en">Contact</a><a href="#contatti" data-lang="pt">Contato</a></li>
+        <li><a href="#studio" data-lang="it">Lo Studio</a><a href="#studio" data-lang="en">The Firm</a><a href="#studio" data-lang="pt">O Escritório</a><a href="#studio" data-lang="fr">Le Cabinet</a><a href="#studio" data-lang="ru">О Фирме</a></li>
+        <li><a href="#aree" data-lang="it">Aree di Pratica</a><a href="#aree" data-lang="en">Practice Areas</a><a href="#aree" data-lang="pt">Áreas de Atuação</a><a href="#aree" data-lang="fr">Domaines</a><a href="#aree" data-lang="ru">Практика</a></li>
+        <li><a href="#contatti" data-lang="it">Contatti</a><a href="#contatti" data-lang="en">Contact</a><a href="#contatti" data-lang="pt">Contato</a><a href="#contatti" data-lang="pt">Contato</a><a href="#contatti" data-lang="fr">Contact</a><a href="#contatti" data-lang="ru">Контакты</a></li>
       </ul>
     </nav>
     <a href="#contatti" class="nav-cta" data-lang="it">Consulenza</a>
     <a href="#contatti" class="nav-cta" data-lang="en">Consultation</a>
     <a href="#contatti" class="nav-cta" data-lang="pt">Consulta</a>
+    <a href="#contatti" class="nav-cta" data-lang="fr">Consultation</a>
+    <a href="#contatti" class="nav-cta" data-lang="ru">Консультация</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -956,6 +922,8 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
     <div class="hero-tag h1" data-lang="it">Studio Legale · Lucera, Foggia · Dal 1996</div>
     <div class="hero-tag h1" data-lang="en">Law Firm · Lucera, Foggia · Since 1996</div>
     <div class="hero-tag h1" data-lang="pt">Escritório de Advocacia · Lucera, Foggia · Desde 1996</div>
+    <div class="hero-tag h1" data-lang="fr">Cabinet d'Avocats · Lucera, Foggia · Depuis 1996</div>
+    <div class="hero-tag h1" data-lang="ru">Юридическая Фирма · Лучера, Фоджа · С 1996</div>
 
     <h1 class="hero-title h2" data-lang="it">
       <strong>Studio Legale</strong>
@@ -969,6 +937,14 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
       <strong>Escritório de Advocacia</strong>
       <em>Avv. Elena Grasso</em>
     </h1>
+    <h1 class="hero-title h2" data-lang="fr">
+      <strong>Cabinet d'Avocats</strong>
+      <em>Avv. Elena Grasso</em>
+    </h1>
+    <h1 class="hero-title h2" data-lang="ru">
+      <strong>Юридическая Фирма</strong>
+      <em>Авв. Елена Грассо</em>
+    </h1>
 
     <div class="hero-rule h3"></div>
 
@@ -981,34 +957,50 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
     <p class="hero-body h3" data-lang="pt">
       Assistência jurídica qualificada em direito civil, penal, trabalhista, administrativo, societário, bancário e recuperação de créditos. Uma equipe de profissionais dedicados ao serviço de pessoas, empresas e instituições <strong style="color:var(--gold-light)">em todo o mundo</strong>.
     </p>
+    <p class="hero-body h3" data-lang="fr">
+      Conseil juridique qualifié en droit civil, pénal, du travail, administratif, des sociétés, bancaire et recouvrement de créances. Une équipe de professionnels dédiés au service des particuliers, des entreprises et des institutions <strong style="color:var(--gold-light)">dans le monde entier</strong>.
+    </p>
+    <p class="hero-body h3" data-lang="ru">
+      Квалифицированная юридическая помощь в области гражданского, уголовного, трудового, административного, корпоративного, банковского права и взыскания долгов. Профессионалы на службе частных лиц, предприятий и организаций <strong style="color:var(--gold-light)">по всему миру</strong>.
+    </p>
 
     <div class="hero-btns h4">
       <a href="#contatti" class="btn-a" data-lang="it">Prenota una consulenza</a>
       <a href="#contatti" class="btn-a" data-lang="en">Book a consultation</a>
       <a href="#contatti" class="btn-a" data-lang="pt">Agendar uma consulta</a>
+      <a href="#contatti" class="btn-a" data-lang="fr">Prendre rendez-vous</a>
+      <a href="#contatti" class="btn-a" data-lang="ru">Записаться на консультацию</a>
       <a href="#aree" class="btn-b" data-lang="it">Le nostre aree →</a>
       <a href="#aree" class="btn-b" data-lang="en">Our practice areas →</a>
       <a href="#aree" class="btn-b" data-lang="pt">Nossas áreas →</a>
+      <a href="#aree" class="btn-b" data-lang="fr">Nos domaines →</a>
+      <a href="#aree" class="btn-b" data-lang="ru">Наши практики →</a>
     </div>
 
     <div class="hero-badges h5">
       <div class="hero-badge">
         <div class="hb-num">1996</div>
-        <div class="hb-label" data-lang="it">Anno di fondazione</div>
-        <div class="hb-label" data-lang="en">Year of establishment </div>
-        <div class="hb-label" data-lang="pt">Ano de fundação</div>
+        <div class="hb-label" data-lang="it">Fondato in ottobre</div>
+        <div class="hb-label" data-lang="en">Founded in October</div>
+        <div class="hb-label" data-lang="pt">Fundado em outubro</div>
+        <div class="hb-label" data-lang="fr">Fondé en octobre</div>
+        <div class="hb-label" data-lang="ru">Основана в октябре</div>
       </div>
       <div class="hero-badge">
         <div class="hb-num">8</div>
         <div class="hb-label" data-lang="it">Aree di pratica</div>
         <div class="hb-label" data-lang="en">Practice areas</div>
         <div class="hb-label" data-lang="pt">Áreas de atuação</div>
+        <div class="hb-label" data-lang="fr">Domaines pratiques</div>
+        <div class="hb-label" data-lang="ru">Области практики</div>
       </div>
       <div class="hero-badge">
         <div class="hb-num" style="font-size:1.4rem;letter-spacing:0.04em">Int'l</div>
         <div class="hb-label" data-lang="it">Assistenza mondiale</div>
         <div class="hb-label" data-lang="en">Worldwide coverage</div>
         <div class="hb-label" data-lang="pt">Cobertura mundial</div>
+        <div class="hb-label" data-lang="fr">Couverture mondiale</div>
+        <div class="hb-label" data-lang="ru">Мировое покрытие</div>
       </div>
     </div>
   </div>
@@ -1020,9 +1012,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
       <div class="hc-label" data-lang="it">Il nostro impegno</div>
       <div class="hc-label" data-lang="en">Our commitment</div>
       <div class="hc-label" data-lang="pt">Nosso compromisso</div>
+      <div class="hc-label" data-lang="fr">Notre engagement</div>
+      <div class="hc-label" data-lang="ru">Наше обязательство</div>
       <div class="hc-text" data-lang="it">"La vera giustizia si costruisce con rigore, etica e dedizione incondizionata al cliente."</div>
       <div class="hc-text" data-lang="en">"True justice is built through rigour, ethics and unconditional dedication to the client."</div>
       <div class="hc-text" data-lang="pt">"A verdadeira justiça se constrói com rigor, ética e dedicação incondicional ao cliente."</div>
+      <div class="hc-text" data-lang="fr">«La véritable justice se construit avec rigueur, éthique et dévouement inconditionnel au client.»</div>
+      <div class="hc-text" data-lang="ru">«Настоящее правосудие строится на строгости, этике и безусловной преданности клиенту.»</div>
     </div>
   </div>
 </section>
@@ -1034,41 +1030,57 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
       <span class="prac-name" data-lang="it">Diritto Civile</span>
       <span class="prac-name" data-lang="en">Civil Law</span>
       <span class="prac-name" data-lang="pt">Direito Civil</span>
+      <span class="prac-name" data-lang="fr">Droit Civil</span>
+      <span class="prac-name" data-lang="ru">Гражданское право</span>
     </a>
     <a href="#aree" class="prac-item">
       <span class="prac-name" data-lang="it">Diritto Penale</span>
       <span class="prac-name" data-lang="en">Criminal Law</span>
       <span class="prac-name" data-lang="pt">Direito Penal</span>
+      <span class="prac-name" data-lang="fr">Droit Pénal</span>
+      <span class="prac-name" data-lang="ru">Уголовное право</span>
     </a>
     <a href="#aree" class="prac-item">
       <span class="prac-name" data-lang="it">Diritto del Lavoro</span>
       <span class="prac-name" data-lang="en">Labour Law</span>
       <span class="prac-name" data-lang="pt">Direito do Trabalho</span>
+      <span class="prac-name" data-lang="fr">Droit du Travail</span>
+      <span class="prac-name" data-lang="ru">Трудовое право</span>
     </a>
     <a href="#aree" class="prac-item">
       <span class="prac-name" data-lang="it">Dir. Amministrativo</span>
       <span class="prac-name" data-lang="en">Administrative Law</span>
       <span class="prac-name" data-lang="pt">Dir. Administrativo</span>
+      <span class="prac-name" data-lang="fr">Droit Administratif</span>
+      <span class="prac-name" data-lang="ru">Административное право</span>
     </a>
     <a href="#aree" class="prac-item">
       <span class="prac-name" data-lang="it">Diritto Societario</span>
       <span class="prac-name" data-lang="en">Corporate Law</span>
       <span class="prac-name" data-lang="pt">Direito Societário</span>
+      <span class="prac-name" data-lang="fr">Droit des Sociétés</span>
+      <span class="prac-name" data-lang="ru">Корпоративное право</span>
     </a>
     <a href="#aree" class="prac-item">
       <span class="prac-name" data-lang="it">Dir. Bancario</span>
       <span class="prac-name" data-lang="en">Banking Law</span>
       <span class="prac-name" data-lang="pt">Dir. Bancário</span>
+      <span class="prac-name" data-lang="fr">Droit Bancaire</span>
+      <span class="prac-name" data-lang="ru">Банковское право</span>
     </a>
     <a href="#aree" class="prac-item">
       <span class="prac-name" data-lang="it">Mediazione</span>
       <span class="prac-name" data-lang="en">Mediation</span>
       <span class="prac-name" data-lang="pt">Mediação</span>
+      <span class="prac-name" data-lang="fr">Médiation</span>
+      <span class="prac-name" data-lang="ru">Медиация</span>
     </a>
     <a href="#aree" class="prac-item">
       <span class="prac-name" data-lang="it">Recupero Crediti</span>
       <span class="prac-name" data-lang="en">Debt Recovery</span>
       <span class="prac-name" data-lang="pt">Rec. Créditos</span>
+      <span class="prac-name" data-lang="fr">Recouvrement</span>
+      <span class="prac-name" data-lang="ru">Взыскание долгов</span>
     </a>
   </div>
 </div>
@@ -1083,21 +1095,27 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
           alt="Studio Legale Avvocato Elena Grasso">
         <div class="about-photo-badge">
           <div class="apb-num">1996</div>
-          <div class="apb-sub" data-lang="it">Anno di fondazione</div>
-          <div class="apb-sub" data-lang="en">Year of establishment</div>
-        <div class="apb-sub" data-lang="pt">Ano de fundação</div>
+          <div class="apb-sub" data-lang="it">Fondato in ottobre</div>
+          <div class="apb-sub" data-lang="en">Founded in October</div>
+        <div class="apb-sub" data-lang="pt">Fundado em outubro</div>
+        <div class="apb-sub" data-lang="fr">Fondé en octobre</div>
+        <div class="apb-sub" data-lang="ru">Основана в октябре</div>
         </div>
       </div>
       <div class="reveal">
         <div class="sec-label" data-lang="it">Lo Studio</div>
         <div class="sec-label" data-lang="en">The Firm</div>
         <div class="sec-label" data-lang="pt">O Escritório</div>
+        <div class="sec-label" data-lang="fr">Le Cabinet</div>
+        <div class="sec-label" data-lang="ru">О Фирме</div>
         <h2 class="sec-title" data-lang="it">Una realtà <em>solida</em><br>al vostro fianco</h2>
         <h2 class="sec-title" data-lang="en">A <em>trusted</em> firm<br>by your side</h2>
         <h2 class="sec-title" data-lang="pt">Uma realidade <em>sólida</em><br>ao seu lado</h2>
+        <h2 class="sec-title" data-lang="fr">Un cabinet <em>solide</em><br>à vos côtés</h2>
+        <h2 class="sec-title" data-lang="ru">Надёжная фирма<br><em>на вашей стороне</em></h2>
 
         <p class="about-text" data-lang="it">
-          Lo Studio Legale Avvocato Elena Grasso è una realtà professionale radicata a Lucera, nel cuore della Puglia, attiva dall'<strong>ottobre 1996</strong>. Con quasi trent'anni di esperienza nel trattare le questioni legali più complesse, lo studio riunisce professionisti specializzati nelle principali branche del diritto, garantendo un'assistenza integrata e di alto profilo.
+          Lo Studio Legale Avvocato Elena Grasso è una realtà professionale radicata a Lucera, nel cuore della Puglia, attiva dal <strong>ottobre 1996</strong>. Con quasi trent'anni di esperienza nel trattare le questioni legali più complesse, lo studio riunisce professionisti specializzati nelle principali branche del diritto, garantendo un'assistenza integrata e di alto profilo.
         </p>
         <p class="about-text" data-lang="it">
           Il nostro approccio combina rigore tecnico e attenzione alla persona: ogni cliente riceve una strategia su misura, costruita sulla comprensione profonda della sua situazione. Operiamo dinanzi ai tribunali italiani e assistiamo clienti in tutto il mondo, senza confini geografici.
@@ -1114,11 +1132,25 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <p class="about-text" data-lang="pt">
           Nossa abordagem combina rigor técnico com genuína atenção às pessoas: cada cliente recebe uma estratégia personalizada, construída a partir de uma compreensão profunda da sua situação. Atuamos perante os tribunais italianos e assistimos clientes <strong>em todo o mundo</strong>, sem fronteiras geográficas.
         </p>
+        <p class="about-text" data-lang="fr">
+          Le Cabinet d'Avocats de l'Avvocato Elena Grasso est une pratique établie, enracinée à Lucera, au cœur des Pouilles, active depuis <strong>octobre 1996</strong>. Avec près de trente ans d'expérience, le cabinet réunit des spécialistes dans toutes les principales branches du droit.
+        </p>
+        <p class="about-text" data-lang="fr">
+          Notre approche allie rigueur technique et attention sincère aux personnes. Nous intervenons devant les tribunaux italiens et assistons nos clients <strong>dans le monde entier</strong>, sans frontières géographiques.
+        </p>
+        <p class="about-text" data-lang="ru">
+          Юридическая фирма адвоката Елены Грассо — устоявшаяся практика в Лучере, с <strong>октября 1996 года</strong>. Почти тридцать лет опыта в сложных правовых вопросах.
+        </p>
+        <p class="about-text" data-lang="ru">
+          Наш подход сочетает техническую строгость с искренним вниманием к клиенту. Мы выступаем в итальянских судах и помогаем клиентам <strong>по всему миру</strong>.
+        </p>
 
         <div class="partner-name">Avv. Elena Grasso</div>
         <div class="partner-role" data-lang="it">Fondatrice &amp; Managing Partner</div>
         <div class="partner-role" data-lang="en">Founder &amp; Managing Partner</div>
         <div class="partner-role" data-lang="pt">Fundadora &amp; Sócia Gerente</div>
+        <div class="partner-role" data-lang="fr">Fondatrice &amp; Associée Gérante</div>
+        <div class="partner-role" data-lang="ru">Основатель &amp; Управляющий Партнёр</div>
       </div>
     </div>
   </div>
@@ -1138,6 +1170,8 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
       </div>
       <p class="sec-lead reveal" data-lang="it">Assistenza integrata nelle principali aree del diritto, con competenze specifiche per ogni settore.</p>
       <p class="sec-lead reveal" data-lang="en">Integrated assistance across the main areas of law, with sector-specific expertise for every matter.</p>
+      <p class="sec-lead reveal" data-lang="fr">Assistance intégrée dans les principaux domaines du droit, avec une expertise sectorielle pour chaque affaire.</p>
+      <p class="sec-lead reveal" data-lang="ru">Комплексная помощь во всех основных областях права со специализированной экспертизой.</p>
       <p class="sec-lead reveal" data-lang="pt">Assistência integrada nas principais áreas do direito, com competência específica para cada matéria.</p>
     </div>
 
@@ -1147,13 +1181,19 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="area-tag" data-lang="it">Area Flagship</div>
         <div class="area-tag" data-lang="en">Flagship Area</div>
         <div class="area-tag" data-lang="pt">Área Principal</div>
+        <div class="area-tag" data-lang="fr">Zone Principale</div>
+        <div class="area-tag" data-lang="ru">Ключевая Область</div>
         <div class="area-num">01</div>
         <div class="area-title criminal" data-lang="it">Diritto Penale</div>
         <div class="area-title criminal" data-lang="en">Criminal Law</div>
         <div class="area-title criminal" data-lang="pt">Direito Penal</div>
+        <div class="area-title criminal" data-lang="fr">Droit Pénal</div>
+        <div class="area-title criminal" data-lang="ru">Уголовное право</div>
         <p class="area-desc" data-lang="it">Difesa penale in ogni grado di giudizio, dall'indagine preliminare al giudizio di Cassazione. Reati contro la persona, reati economici, reati informatici e responsabilità degli enti (D.Lgs. 231/2001). Patrocinio di parti civili e assistenza alle vittime di reato.</p>
         <p class="area-desc" data-lang="en">Criminal defence at every stage of proceedings, from preliminary investigation to the Court of Cassation. Offences against the person, economic crimes, cybercrime and corporate liability (Legislative Decree 231/2001). Civil party representation and victim assistance.</p>
         <p class="area-desc" data-lang="pt">Defesa criminal em todos os graus de jurisdição, desde a investigação preliminar até o Tribunal de Cassação. Crimes contra a pessoa, crimes económicos, cibercrime e responsabilidade corporativa (Decreto Legislativo 231/2001). Representação de partes civis e assistência às vítimas.</p>
+        <p class="area-desc" data-lang="fr">Défense pénale à tous les stades de la procédure, de l'enquête préliminaire à la Cour de cassation. Infractions contre les personnes, crimes économiques, cybercriminalité et responsabilité des entreprises. Représentation des parties civiles.</p>
+        <p class="area-desc" data-lang="ru">Уголовная защита на всех стадиях судопроизводства. Преступления против личности, экономические преступления, киберпреступность. Представление гражданских истцов и помощь жертвам.</p>
       </div>
       <!-- CIVILE -->
       <div class="area-card">
@@ -1161,9 +1201,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="area-title" data-lang="it">Diritto Civile</div>
         <div class="area-title" data-lang="en">Civil Law</div>
         <div class="area-title" data-lang="pt">Direito Civil</div>
+        <div class="area-title" data-lang="fr">Droit Civil</div>
+        <div class="area-title" data-lang="ru">Гражданское право</div>
         <p class="area-desc" data-lang="it">Contratti, proprietà, successioni, diritto di famiglia e responsabilità civile. Assistenza integrata in ogni fase del contenzioso civile, dalla diffida giudiziale all'esecuzione delle sentenze.</p>
         <p class="area-desc" data-lang="en">Contracts, property, inheritance, family law and tort liability. Full assistance at every stage of civil proceedings, from formal notice through to enforcement of judgments.</p>
         <p class="area-desc" data-lang="pt">Contratos, propriedade, sucessões, direito de família e responsabilidade civil. Assistência completa em todas as fases do litígio civil, desde a notificação formal até à execução das sentenças.</p>
+        <p class="area-desc" data-lang="fr">Contrats, propriété, successions, droit de la famille et responsabilité civile. Assistance complète à tous les stades du contentieux civil.</p>
+        <p class="area-desc" data-lang="ru">Договоры, имущество, наследование, семейное право и гражданская ответственность. Полная поддержка на всех этапах процесса.</p>
       </div>
       <!-- LAVORO -->
       <div class="area-card">
@@ -1171,9 +1215,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="area-title" data-lang="it">Diritto del Lavoro</div>
         <div class="area-title" data-lang="en">Labour Law</div>
         <div class="area-title" data-lang="pt">Direito do Trabalho</div>
+        <div class="area-title" data-lang="fr">Droit du Travail</div>
+        <div class="area-title" data-lang="ru">Трудовое право</div>
         <p class="area-desc" data-lang="it">Contratti di lavoro subordinato e autonomo, licenziamenti, sicurezza sul lavoro, mobbing e contratti collettivi. Assistenza tanto per datori di lavoro quanto per lavoratori.</p>
         <p class="area-desc" data-lang="en">Employment and self-employment contracts, wrongful dismissal, workplace safety, mobbing and collective agreements. Assistance for both employers and employees.</p>
         <p class="area-desc" data-lang="pt">Contratos de trabalho por conta de outrem e por conta própria, despedimentos ilícitos, segurança no trabalho, assédio e contratos coletivos. Assistência tanto para empregadores como para trabalhadores.</p>
+        <p class="area-desc" data-lang="fr">Contrats de travail, licenciements abusifs, sécurité au travail, harcèlement et conventions collectives. Assistance pour les employeurs comme pour les salariés.</p>
+        <p class="area-desc" data-lang="ru">Трудовые договоры, незаконные увольнения, охрана труда, моббинг. Помощь работодателям и работникам.</p>
       </div>
       <!-- AMMINISTRATIVO -->
       <div class="area-card">
@@ -1181,9 +1229,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="area-title" data-lang="it">Diritto Amministrativo</div>
         <div class="area-title" data-lang="en">Administrative Law</div>
         <div class="area-title" data-lang="pt">Direito Administrativo</div>
+        <div class="area-title" data-lang="fr">Droit Administratif</div>
+        <div class="area-title" data-lang="ru">Административное право</div>
         <p class="area-desc" data-lang="it">Ricorsi al TAR e al Consiglio di Stato, appalti pubblici, urbanistica, edilizia e autorizzazioni. Contenzioso con la pubblica amministrazione a ogni livello.</p>
         <p class="area-desc" data-lang="en">Appeals before the Regional Administrative Court and the Council of State, public procurement, urban planning, building permits and authorisations. Disputes with public authorities at every level.</p>
         <p class="area-desc" data-lang="pt">Recursos perante o Tribunal Administrativo Regional e o Conselho de Estado, contratação pública, urbanismo, licenças de construção e autorizações. Litígios com autoridades públicas em todos os níveis.</p>
+        <p class="area-desc" data-lang="fr">Recours devant le Tribunal administratif régional et le Conseil d'État, marchés publics, urbanisme, permis de construire et autorisations.</p>
+        <p class="area-desc" data-lang="ru">Обжалование в Региональном административном суде и Государственном совете. Государственные закупки, градостроительство, разрешения.</p>
       </div>
       <!-- SOCIETARIO -->
       <div class="area-card">
@@ -1191,10 +1243,16 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="area-title" data-lang="it">Diritto Societario e Commerciale</div>
         <div class="area-title" data-lang="en">Corporate &amp; Commercial Law</div>
         <div class="area-title" data-lang="pt">Direito Societário e Comercial</div>
+        <div class="area-title" data-lang="fr">Droit des Sociétés et Commercial</div>
+        <div class="area-title" data-lang="ru">Корпоративное право</div>
         <p class="area-desc" data-lang="it">Costituzione di società, governance, patti parasociali, fusioni, acquisizioni e ristrutturazioni aziendali. Contratti commerciali nazionali e internazionali.</p>
         <p class="area-desc" data-lang="en">Company formation, governance, shareholders' agreements, mergers, acquisitions and corporate restructuring. Domestic and international commercial contracts.</p>
         <p class="area-desc" data-lang="pt">Constituição de sociedades, governança, acordos de acionistas, fusões, aquisições e reestruturações empresariais. Contratos comerciais nacionais e internacionais.</p>
+        <p class="area-desc" data-lang="fr">Constitution de sociétés, gouvernance, pactes d'actionnaires, fusions, acquisitions et restructurations. Contrats commerciaux nationaux et internationaux.</p>
+        <p class="area-desc" data-lang="ru">Создание компаний, корпоративное управление, слияния и поглощения, реструктуризация. Коммерческие контракты.</p>
         <p class="area-desc" data-lang="pt">Constituição de sociedades, governança, acordos de acionistas, fusões, aquisições e reestruturações empresariais. Contratos comerciais nacionais e internacionais.</p>
+        <p class="area-desc" data-lang="fr">Constitution de sociétés, gouvernance, pactes d'actionnaires, fusions, acquisitions et restructurations. Contrats commerciaux nationaux et internationaux.</p>
+        <p class="area-desc" data-lang="ru">Создание компаний, корпоративное управление, слияния и поглощения, реструктуризация. Коммерческие контракты.</p>
       </div>
       <!-- BANCARIO -->
       <div class="area-card">
@@ -1202,9 +1260,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="area-title" data-lang="it">Diritto Bancario e Finanziario</div>
         <div class="area-title" data-lang="en">Banking &amp; Financial Law</div>
         <div class="area-title" data-lang="pt">Direito Bancário e Financeiro</div>
+        <div class="area-title" data-lang="fr">Droit Bancaire et Financier</div>
+        <div class="area-title" data-lang="ru">Банковское право</div>
         <p class="area-desc" data-lang="it">Finanziamenti, fideiussioni, usura bancaria, anatocismo e trasparenza contrattuale. Contenzioso con istituti di credito e impugnazione di contratti di investimento.</p>
         <p class="area-desc" data-lang="en">Financing, surety bonds, usury, compound interest and contractual transparency. Disputes with credit institutions and challenges to investment contracts.</p>
         <p class="area-desc" data-lang="pt">Financiamentos, fianças, usura bancária, anatocismo e transparência contratual. Litígios com instituições de crédito e impugnação de contratos de investimento.</p>
+        <p class="area-desc" data-lang="fr">Financements, cautionnements, usure bancaire, anatocisme et transparence contractuelle. Contentieux avec les établissements de crédit.</p>
+        <p class="area-desc" data-lang="ru">Финансирование, поручительства, банковское ростовщичество. Споры с кредитными организациями.</p>
       </div>
       <!-- MEDIAZIONE – spans full width on small -->
       <div class="area-card">
@@ -1212,9 +1274,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="area-title" data-lang="it">Mediazione e ADR</div>
         <div class="area-title" data-lang="en">Mediation &amp; ADR</div>
         <div class="area-title" data-lang="pt">Mediação e RAL</div>
+        <div class="area-title" data-lang="fr">Médiation et RAL</div>
+        <div class="area-title" data-lang="ru">Медиация и АРС</div>
         <p class="area-desc" data-lang="it">Risoluzione alternativa delle controversie in ambito civile e commerciale. Mediatori accreditati presso organismi ministeriali. Arbitrato e negoziazione assistita.</p>
         <p class="area-desc" data-lang="en">Alternative dispute resolution in civil and commercial matters. Mediators accredited with Ministry-approved bodies. Arbitration and assisted negotiation.</p>
         <p class="area-desc" data-lang="pt">Resolução alternativa de litígios em matéria civil e comercial. Mediadores credenciados junto de organismos ministeriais. Arbitragem e negociação assistida.</p>
+        <p class="area-desc" data-lang="fr">Résolution alternative des litiges en matière civile et commerciale. Médiateurs accrédités auprès d'organismes ministériels. Arbitrage et négociation assistée.</p>
+        <p class="area-desc" data-lang="ru">Альтернативное разрешение споров в гражданских и коммерческих делах. Аккредитованные медиаторы. Арбитраж.</p>
       </div>
       <!-- RECUPERO CREDITI -->
       <div class="area-card">
@@ -1222,9 +1288,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="area-title" data-lang="it">Recupero Crediti</div>
         <div class="area-title" data-lang="en">Debt Recovery</div>
         <div class="area-title" data-lang="pt">Recuperação de Créditos</div>
+        <div class="area-title" data-lang="fr">Recouvrement de Créances</div>
+        <div class="area-title" data-lang="ru">Взыскание долгов</div>
         <p class="area-desc" data-lang="it">Recupero stragiudiziale e giudiziale di crediti insoluti, sia per privati sia per aziende. Decreti ingiuntivi, procedure esecutive, pignoramenti e azioni nei confronti di debitori insolventi in Italia e all'estero.</p>
         <p class="area-desc" data-lang="en">Out-of-court and judicial recovery of unpaid debts, for individuals and businesses alike. Injunctions, enforcement proceedings, asset seizures and actions against insolvent debtors in Italy and abroad.</p>
         <p class="area-desc" data-lang="pt">Recuperação extrajudicial e judicial de créditos em mora, tanto para particulares como para empresas. Injunções, procedimentos de execução, penhoras e ações contra devedores insolventes em Itália e no estrangeiro.</p>
+        <p class="area-desc" data-lang="fr">Recouvrement amiable et judiciaire de créances impayées pour les particuliers et les entreprises. Injonctions de payer, procédures d'exécution, saisies contre les débiteurs insolvables.</p>
+        <p class="area-desc" data-lang="ru">Внесудебное и судебное взыскание долгов. Судебные приказы, аресты имущества и иски против неплатёжеспособных должников.</p>
       </div>
     </div>
   </div>
@@ -1237,8 +1307,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
       <div class="sec-label" style="justify-content:center" data-lang="it">I nostri valori</div>
       <div class="sec-label" style="justify-content:center" data-lang="en">Our values</div>
       <div class="sec-label" style="justify-content:center" data-lang="pt">Nossos valores</div>
+      <div class="sec-label" style="justify-content:center" data-lang="fr">Nos valeurs</div>
+      <div class="sec-label" style="justify-content:center" data-lang="ru">Наши ценности</div>
+      <div class="sec-label" style="justify-content:center" data-lang="pt">Nossos valores</div>
       <h2 class="sec-title" data-lang="it">Come lavoriamo</h2>
       <h2 class="sec-title" data-lang="en">How we work</h2>
+      <h2 class="sec-title" data-lang="fr">Comment nous travaillons</h2>
+      <h2 class="sec-title" data-lang="ru">Как мы работаем</h2>
       <h2 class="sec-title" data-lang="pt">Como trabalhamos</h2>
     </div>
     <div class="values-grid reveal">
@@ -1247,8 +1322,14 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="val-title" data-lang="it">Riservatezza</div>
         <div class="val-title" data-lang="en">Confidentiality</div>
       <div class="val-title" data-lang="pt">Sigilo Profissional</div>
+      <div class="val-title" data-lang="fr">Confidentialité</div>
+      <div class="val-title" data-lang="ru">Профессиональная тайна</div>
+      <div class="val-title" data-lang="pt">Sigilo Profissional</div>
         <p class="val-text" data-lang="it">Il segreto professionale è un pilastro della nostra etica. Ogni informazione è trattata con la massima discrezione.</p>
         <p class="val-text" data-lang="en">Professional privilege is a cornerstone of our ethics. Every piece of information is handled with the utmost discretion.</p>
+        <p class="val-text" data-lang="pt">O sigilo profissional é um pilar da nossa ética. Cada informação é tratada com a máxima discrição.</p>
+        <p class="val-text" data-lang="fr">Le secret professionnel est un pilier de notre éthique. Chaque information est traitée avec la plus grande discrétion.</p>
+        <p class="val-text" data-lang="ru">Профессиональная тайна — основа нашей этики. Каждая информация обрабатывается с максимальной осторожностью.</p>
         <p class="val-text" data-lang="pt">O sigilo profissional é um pilar da nossa ética. Cada informação é tratada com a máxima discrição.</p>
       </div>
       <div class="val-item">
@@ -1256,8 +1337,14 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="val-title" data-lang="it">Competenza</div>
         <div class="val-title" data-lang="en">Expertise</div>
       <div class="val-title" data-lang="pt">Competência</div>
+      <div class="val-title" data-lang="fr">Expertise</div>
+      <div class="val-title" data-lang="ru">Компетентность</div>
+      <div class="val-title" data-lang="pt">Competência</div>
         <p class="val-text" data-lang="it">Aggiornamento costante e specializzazione verticale garantiscono soluzioni legali all'avanguardia per ogni materia.</p>
         <p class="val-text" data-lang="en">Continuous training and deep specialisation ensure cutting-edge legal solutions across every area of law.</p>
+        <p class="val-text" data-lang="pt">A formação contínua e a especialização aprofundada garantem soluções jurídicas de ponta.</p>
+        <p class="val-text" data-lang="fr">La formation continue et la spécialisation approfondie garantissent des solutions juridiques de pointe dans tous les domaines du droit.</p>
+        <p class="val-text" data-lang="ru">Непрерывное обучение и глубокая специализация обеспечивают передовые правовые решения.</p>
         <p class="val-text" data-lang="pt">A formação contínua e a especialização aprofundada garantem soluções jurídicas de ponta em todas as áreas do direito.</p>
       </div>
       <div class="val-item">
@@ -1265,8 +1352,14 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="val-title" data-lang="it">Trasparenza</div>
         <div class="val-title" data-lang="en">Transparency</div>
       <div class="val-title" data-lang="pt">Transparência</div>
+      <div class="val-title" data-lang="fr">Transparence</div>
+      <div class="val-title" data-lang="ru">Прозрачность</div>
+      <div class="val-title" data-lang="pt">Transparência</div>
         <p class="val-text" data-lang="it">Comunicazione chiara, preventivi definiti e aggiornamenti regolari: saprete sempre a che punto è la vostra pratica.</p>
         <p class="val-text" data-lang="en">Clear communication, defined fees and regular updates: you will always know exactly where your matter stands.</p>
+        <p class="val-text" data-lang="pt">Comunicação clara, honorários definidos e atualizações regulares: saberá sempre em que ponto se encontra o seu processo.</p>
+        <p class="val-text" data-lang="fr">Communication claire, honoraires définis et mises à jour régulières: vous saurez toujours où en est votre dossier.</p>
+        <p class="val-text" data-lang="ru">Чёткое общение, фиксированные гонорары и регулярные обновления.</p>
         <p class="val-text" data-lang="pt">Comunicação clara, honorários definidos e atualizações regulares: saberá sempre em que ponto se encontra o seu processo.</p>
       </div>
       <div class="val-item">
@@ -1274,8 +1367,14 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="val-title" data-lang="it">Risultati</div>
         <div class="val-title" data-lang="en">Results</div>
       <div class="val-title" data-lang="pt">Resultados</div>
+      <div class="val-title" data-lang="fr">Résultats</div>
+      <div class="val-title" data-lang="ru">Результаты</div>
+      <div class="val-title" data-lang="pt">Resultados</div>
         <p class="val-text" data-lang="it">Ogni strategia è costruita per ottenere il miglior risultato possibile, non soltanto per gestire il procedimento.</p>
         <p class="val-text" data-lang="en">Every strategy is built to achieve the best possible outcome — not merely to manage the proceedings.</p>
+        <p class="val-text" data-lang="pt">Cada estratégia é construída para alcançar o melhor resultado possível.</p>
+        <p class="val-text" data-lang="fr">Chaque stratégie est construite pour obtenir le meilleur résultat possible.</p>
+        <p class="val-text" data-lang="ru">Каждая стратегия строится для достижения наилучшего возможного результата.</p>
         <p class="val-text" data-lang="pt">Cada estratégia é construída para alcançar o melhor resultado possível — e não apenas para gerir o processo.</p>
       </div>
     </div>
@@ -1294,8 +1393,20 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
   <p class="quote-text" data-lang="pt">
     Defender os direitos de um cliente significa assumir a responsabilidade pela sua história. É um mandato que vai muito além de uma sala de tribunal.
   </p>
+  <p class="quote-text" data-lang="fr">
+    Défendre les droits d'un client, c'est assumer la responsabilité de son histoire. C'est un mandat qui va bien au-delà d'une salle d'audience.
+  </p>
+  <p class="quote-text" data-lang="ru">
+    Защищать права клиента — значит брать на себя ответственность за его историю. Это полномочие, выходящее далеко за пределы зала суда.
+  </p>
+  <p class="quote-text" data-lang="pt">
+    Defender os direitos de um cliente significa assumir a responsabilidade pela sua história. É um mandato que vai muito além de uma sala de tribunal.
+  </p>
   <div class="quote-attr" data-lang="it">Avv. Elena Grasso — Managing Partner</div>
   <div class="quote-attr" data-lang="en">Avv. Elena Grasso — Managing Partner</div>
+  <div class="quote-attr" data-lang="pt">Avv. Elena Grasso — Sócia Gerente</div>
+  <div class="quote-attr" data-lang="fr">Avv. Elena Grasso — Associée Gérante</div>
+  <div class="quote-attr" data-lang="ru">Авв. Елена Грассо — Управляющий Партнёр</div>
   <div class="quote-attr" data-lang="pt">Avv. Elena Grasso — Sócia Gerente</div>
 </section>
 
@@ -1304,10 +1415,19 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
   <div class="contact-info-col">
     <div class="sec-label" data-lang="it">Contatti</div>
     <div class="sec-label" data-lang="en">Contact</div>
+    <div class="sec-label" data-lang="pt">Contato</div>
+    <div class="sec-label" data-lang="fr">Contact</div>
+    <div class="sec-label" data-lang="ru">Контакты</div>
     <h2 class="sec-title" data-lang="it">Siamo a<br><em>vostra disposizione</em></h2>
     <h2 class="sec-title" data-lang="en">We are at<br><em>your disposal</em></h2>
+    <h2 class="sec-title" data-lang="pt">Estamos à<br><em>sua disposição</em></h2>
+    <h2 class="sec-title" data-lang="fr">Nous sommes à<br><em>votre disposition</em></h2>
+    <h2 class="sec-title" data-lang="ru">Мы к<br><em>вашим услугам</em></h2>
     <p class="sec-lead" data-lang="it">Contattateci per una prima consulenza riservata. Operiamo su tutto il territorio italiano e assistiamo clienti <strong style="color:var(--gold-light)">in tutto il mondo</strong>, in presenza a Lucera o da remoto.</p>
     <p class="sec-lead" data-lang="en">Contact us for a confidential initial consultation. We operate throughout Italy and assist clients <strong style="color:var(--gold-light)">worldwide</strong>, in person in Lucera or remotely.</p>
+    <p class="sec-lead" data-lang="pt">Entre em contato para uma primeira consulta confidencial. Atuamos em toda a Itália e assistimos clientes <strong style="color:var(--gold-light)">em todo o mundo</strong>, presencialmente ou à distância.</p>
+    <p class="sec-lead" data-lang="fr">Contactez-nous pour une première consultation confidentielle. Nous intervenons dans toute l'Italie et assistons nos clients <strong style="color:var(--gold-light)">dans le monde entier</strong>, en personne ou à distance.</p>
+    <p class="sec-lead" data-lang="ru">Свяжитесь с нами для первой конфиденциальной консультации. Мы работаем по всей Италии и помогаем клиентам <strong style="color:var(--gold-light)">по всему миру</strong>, лично или дистанционно.</p>
     <p class="sec-lead" data-lang="pt">Entre em contato para uma primeira consulta confidencial. Atuamos em toda a Itália e assistimos clientes <strong style="color:var(--gold-light)">em todo o mundo</strong>, presencialmente em Lucera ou à distância.</p>
 
     <div class="cinfo-grid">
@@ -1317,6 +1437,9 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
           <div class="cinfo-label" data-lang="it">Sede</div>
           <div class="cinfo-label" data-lang="en">Address</div>
           <div class="cinfo-label" data-lang="pt">Endereço</div>
+          <div class="cinfo-label" data-lang="fr">Adresse</div>
+          <div class="cinfo-label" data-lang="ru">Адрес</div>
+          <div class="cinfo-label" data-lang="pt">Endereço</div>
           <div class="cinfo-val">Lucera (FG) — Puglia, Italia</div>
         </div>
       </div>
@@ -1325,6 +1448,9 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div>
           <div class="cinfo-label" data-lang="it">Telefono</div>
           <div class="cinfo-label" data-lang="en">Phone</div>
+          <div class="cinfo-label" data-lang="pt">Telefone</div>
+          <div class="cinfo-label" data-lang="fr">Téléphone</div>
+          <div class="cinfo-label" data-lang="ru">Телефон</div>
           <div class="cinfo-label" data-lang="pt">Telefone</div>
           <div class="cinfo-val"><a href="tel:+393387021568" style="color:inherit;text-decoration:none">+39 338 702 1568</a></div>
         </div>
@@ -1342,7 +1468,7 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="cinfo-mark">Email</div>
         <div>
           <div class="cinfo-label">Email</div>
-          <div class="cinfo-val"><a href="mailto:grasso@grasso.law" style="color:var(--gold-light);text-decoration:none">grasso@grasso.law</a></div>
+          <div class="cinfo-val"><a href="/cdn-cgi/l/email-protection#a3c4d1c2d0d0cce3c4d1c2d0d0cc8dcfc2d4" style="color:var(--gold-light);text-decoration:none"><span class="__cf_email__" data-cfemail="a3c4d1c2d0d0cce3c4d1c2d0d0cc8dcfc2d4">[email&#160;protected]</span></a></div>
         </div>
       </div>
       <div class="cinfo-row">
@@ -1351,7 +1477,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
           <div class="cinfo-label" data-lang="it">Operatività</div>
           <div class="cinfo-label" data-lang="en">Coverage</div>
           <div class="cinfo-label" data-lang="pt">Cobertura</div>
+          <div class="cinfo-label" data-lang="fr">Couverture</div>
+          <div class="cinfo-label" data-lang="ru">Охват</div>
+          <div class="cinfo-label" data-lang="pt">Cobertura</div>
           <div class="cinfo-val" data-lang="it">Italia e tutto il mondo<br><small style="opacity:0.65">In presenza e da remoto</small></div>
+          <div class="cinfo-val" data-lang="pt">Itália e todo o mundo<br><small style="opacity:0.65">Presencial e à distância</small></div>
+          <div class="cinfo-val" data-lang="fr">Italie et monde entier<br><small style="opacity:0.65">En personne et à distance</small></div>
+          <div class="cinfo-val" data-lang="ru">Италия и весь мир<br><small style="opacity:0.65">Лично и дистанционно</small></div>
           <div class="cinfo-val" data-lang="en">Italy and worldwide<br><small style="opacity:0.65">In person and remotely</small></div>
           <div class="cinfo-val" data-lang="pt">Itália e todo o mundo<br><small style="opacity:0.65">Presencial e à distância</small></div>
         </div>
@@ -1362,7 +1494,13 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
           <div class="cinfo-label" data-lang="it">Orari</div>
           <div class="cinfo-label" data-lang="en">Office hours</div>
           <div class="cinfo-label" data-lang="pt">Horários</div>
+          <div class="cinfo-label" data-lang="fr">Horaires</div>
+          <div class="cinfo-label" data-lang="ru">Часы работы</div>
+          <div class="cinfo-label" data-lang="pt">Horários</div>
           <div class="cinfo-val" data-lang="it">Lun – Ven: 09:00 – 18:00<br>Su appuntamento</div>
+          <div class="cinfo-val" data-lang="pt">Seg – Sex: 09:00 – 18:00<br>Com agendamento</div>
+          <div class="cinfo-val" data-lang="fr">Lun – Ven : 09:00 – 18:00<br>Sur rendez-vous</div>
+          <div class="cinfo-val" data-lang="ru">Пн – Пт: 09:00 – 18:00<br>По записи</div>
           <div class="cinfo-val" data-lang="en">Mon – Fri: 09:00 – 18:00<br>By appointment</div>
           <div class="cinfo-val" data-lang="pt">Seg – Sex: 09:00 – 18:00<br>Com agendamento</div>
         </div>
@@ -1374,6 +1512,9 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
     <div class="form-title" data-lang="it">Scrivici</div>
     <div class="form-title" data-lang="en">Write to us</div>
     <div class="form-title" data-lang="pt">Escreva-nos</div>
+    <div class="form-title" data-lang="fr">Écrivez-nous</div>
+    <div class="form-title" data-lang="ru">Напишите нам</div>
+    <div class="form-title" data-lang="pt">Escreva-nos</div>
 
     <form id="contact-form" novalidate>
       <div class="form-2col">
@@ -1381,11 +1522,17 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
           <label for="f-nome" data-lang="it">Nome *</label>
           <label for="f-nome" data-lang="en">First name *</label>
           <label for="f-nome" data-lang="pt">Nome *</label>
+          <label for="f-nome" data-lang="fr">Prénom *</label>
+          <label for="f-nome" data-lang="ru">Имя *</label>
+          <label for="f-nome" data-lang="pt">Nome *</label>
           <input type="text" id="f-nome" required placeholder="Maria">
         </div>
         <div class="fg">
           <label for="f-cognome" data-lang="it">Cognome *</label>
           <label for="f-cognome" data-lang="en">Last name *</label>
+          <label for="f-cognome" data-lang="pt">Sobrenome *</label>
+          <label for="f-cognome" data-lang="fr">Nom *</label>
+          <label for="f-cognome" data-lang="ru">Фамилия *</label>
           <label for="f-cognome" data-lang="pt">Sobrenome *</label>
           <input type="text" id="f-cognome" required placeholder="Rossi">
         </div>
@@ -1398,43 +1545,77 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <label for="f-tel" data-lang="it">Telefono</label>
         <label for="f-tel" data-lang="en">Phone</label>
         <label for="f-tel" data-lang="pt">Telefone</label>
+        <label for="f-tel" data-lang="fr">Téléphone</label>
+        <label for="f-tel" data-lang="ru">Телефон</label>
+        <label for="f-tel" data-lang="pt">Telefone</label>
         <input type="tel" id="f-tel" placeholder="+39 333 000 0000">
       </div>
       <div class="fg">
         <label for="f-area" data-lang="it">Area di riferimento *</label>
         <label for="f-area" data-lang="en">Practice area *</label>
         <label for="f-area" data-lang="pt">Área de interesse *</label>
+        <label for="f-area" data-lang="fr">Domaine concerné *</label>
+        <label for="f-area" data-lang="ru">Область интереса *</label>
+        <label for="f-area" data-lang="pt">Área de interesse *</label>
         <select id="f-area" required>
           <option value="" data-lang="it">— Seleziona —</option>
           <option value="" data-lang="en">— Select —</option>
           <option value="" data-lang="pt">— Selecione —</option>
+          <option value="" data-lang="fr">— Sélectionnez —</option>
+          <option value="" data-lang="ru">— Выберите —</option>
           <option value="Diritto Penale" data-lang="it">Diritto Penale</option>
           <option value="Criminal Law" data-lang="en">Criminal Law</option>
           <option value="Direito Penal" data-lang="pt">Direito Penal</option>
+          <option value="Droit Pénal" data-lang="fr">Droit Pénal</option>
+          <option value="Уголовное право" data-lang="ru">Уголовное право</option>
           <option value="Diritto Civile" data-lang="it">Diritto Civile</option>
           <option value="Civil Law" data-lang="en">Civil Law</option>
           <option value="Direito Civil" data-lang="pt">Direito Civil</option>
+          <option value="Droit Civil" data-lang="fr">Droit Civil</option>
+          <option value="Гражданское право" data-lang="ru">Гражданское право</option>
           <option value="Diritto del Lavoro" data-lang="it">Diritto del Lavoro</option>
           <option value="Labour Law" data-lang="en">Labour Law</option>
           <option value="Direito do Trabalho" data-lang="pt">Direito do Trabalho</option>
+          <option value="Droit du Travail" data-lang="fr">Droit du Travail</option>
+          <option value="Трудовое право" data-lang="ru">Трудовое право</option>
           <option value="Diritto Amministrativo" data-lang="it">Diritto Amministrativo</option>
           <option value="Administrative Law" data-lang="en">Administrative Law</option>
           <option value="Direito Administrativo" data-lang="pt">Direito Administrativo</option>
+          <option value="Droit Administratif" data-lang="fr">Droit Administratif</option>
+          <option value="Административное право" data-lang="ru">Административное право</option>
           <option value="Diritto Societario" data-lang="it">Diritto Societario</option>
           <option value="Corporate Law" data-lang="en">Corporate Law</option>
           <option value="Direito Societário" data-lang="pt">Direito Societário</option>
+          <option value="Droit des Sociétés" data-lang="fr">Droit des Sociétés</option>
+          <option value="Корпоративное право" data-lang="ru">Корпоративное право</option>
           <option value="Diritto Bancario" data-lang="it">Diritto Bancario e Finanziario</option>
           <option value="Banking Law" data-lang="en">Banking &amp; Financial Law</option>
+          <option value="Direito Bancário" data-lang="pt">Direito Bancário e Financeiro</option>
+          <option value="Droit Bancaire" data-lang="fr">Droit Bancaire et Financier</option>
+          <option value="Банковское право" data-lang="ru">Банковское право</option>
           <option value="Mediazione" data-lang="it">Mediazione e ADR</option>
           <option value="Mediation" data-lang="en">Mediation &amp; ADR</option>
+          <option value="Mediação" data-lang="pt">Mediação e RAL</option>
+          <option value="Médiation" data-lang="fr">Médiation et RAL</option>
+          <option value="Медиация" data-lang="ru">Медиация и АРС</option>
+          <option value="Recupero Crediti" data-lang="it">Recupero Crediti</option>
+          <option value="Debt Recovery" data-lang="en">Debt Recovery</option>
+          <option value="Recuperação" data-lang="pt">Recuperação de Créditos</option>
+          <option value="Recouvrement" data-lang="fr">Recouvrement de Créances</option>
+          <option value="Взыскание" data-lang="ru">Взыскание долгов</option>
           <option value="Altro" data-lang="it">Altro</option>
           <option value="Other" data-lang="en">Other</option>
           <option value="Outro" data-lang="pt">Outro</option>
+          <option value="Autre" data-lang="fr">Autre</option>
+          <option value="Другое" data-lang="ru">Другое</option>
         </select>
       </div>
       <div class="fg">
         <label for="f-msg" data-lang="it">Messaggio *</label>
         <label for="f-msg" data-lang="en">Message *</label>
+        <label for="f-msg" data-lang="pt">Mensagem *</label>
+        <label for="f-msg" data-lang="fr">Message *</label>
+        <label for="f-msg" data-lang="ru">Сообщение *</label>
         <label for="f-msg" data-lang="pt">Mensagem *</label>
         <textarea id="f-msg" required
           data-it="Descriva brevemente la sua situazione. Tutte le informazioni sono trattate con la massima riservatezza professionale."
@@ -1448,11 +1629,23 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         Pursuant to EU Reg. 2016/679 (GDPR), the data provided will be processed by the Law Firm of Avvocato Elena Grasso solely to respond to this enquiry.
       </div>
       <div class="privacy-note" data-lang="pt">
+        Nos termos do Reg. UE 2016/679 (RGPD), os dados fornecidos serão tratados exclusivamente para responder a esta solicitação.
+      </div>
+      <div class="privacy-note" data-lang="fr">
+        Conformément au Règl. UE 2016/679 (RGPD), les données fournies seront traitées uniquement pour répondre à cette demande.
+      </div>
+      <div class="privacy-note" data-lang="ru">
+        В соответствии с Регл. ЕС 2016/679 (GDPR) данные будут обработаны исключительно для ответа на данный запрос.
+      </div>
+      <div class="privacy-note" data-lang="pt">
         Nos termos do Reg. UE 2016/679 (RGPD), os dados fornecidos serão tratados pelo Escritório de Advocacia da Avv. Elena Grasso exclusivamente para responder a esta solicitação.
       </div>
       <button type="submit" class="form-submit" id="f-submit">
         <span data-lang="it">Invia richiesta</span>
         <span data-lang="en">Send enquiry</span>
+        <span data-lang="pt">Enviar pedido</span>
+        <span data-lang="fr">Envoyer la demande</span>
+        <span data-lang="ru">Отправить запрос</span>
         <span data-lang="pt">Enviar pedido</span>
       </button>
       <div class="form-msg" id="form-msg"></div>
@@ -1466,6 +1659,9 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
     <div class="sec-label" style="justify-content:center;margin-bottom:1rem" data-lang="it">La voce dei clienti</div>
     <div class="sec-label" style="justify-content:center;margin-bottom:1rem" data-lang="en">Client reviews</div>
     <div class="sec-label" style="justify-content:center;margin-bottom:1rem" data-lang="pt">Avaliações dos clientes</div>
+    <div class="sec-label" style="justify-content:center;margin-bottom:1rem" data-lang="fr">Avis des clients</div>
+    <div class="sec-label" style="justify-content:center;margin-bottom:1rem" data-lang="ru">Отзывы клиентов</div>
+    <div class="sec-label" style="justify-content:center;margin-bottom:1rem" data-lang="pt">Avaliações dos clientes</div>
 
     <div class="gmap-badge">
       <div>
@@ -1475,10 +1671,16 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
           <span class="gmap-count" data-lang="it">su Google · <strong>54+ recensioni</strong></span>
           <span class="gmap-count" data-lang="en">on Google · <strong>54+ reviews</strong></span>
           <span class="gmap-count" data-lang="pt">no Google · <strong>54+ avaliações</strong></span>
+          <span class="gmap-count" data-lang="fr">sur Google · <strong>54+ avis</strong></span>
+          <span class="gmap-count" data-lang="ru">в Google · <strong>54+ отзывов</strong></span>
+          <span class="gmap-count" data-lang="pt">no Google · <strong>54+ avaliações</strong></span>
         </div>
       </div>
       <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="it">Leggi su Google Maps →</a>
       <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="en">Read on Google Maps →</a>
+      <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="pt">Ver no Google Maps →</a>
+      <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="fr">Voir sur Google Maps →</a>
+      <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="ru">Смотреть на Google Maps →</a>
       <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="pt">Ver no Google Maps →</a>
     </div>
 
@@ -1488,6 +1690,9 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <p class="rev-text" data-lang="it">"Professionalità e competenza fuori dal comune. L'Avvocato Grasso ha seguito il mio caso con grande dedizione, ottenendo un risultato che non avrei mai sperato. Consigliatissima."</p>
         <p class="rev-text" data-lang="en">"Outstanding professionalism and expertise. The attorney handled my case with great dedication, achieving a result I would never have hoped for. Highly recommended."</p>
         <p class="rev-text" data-lang="pt">"Profissionalismo e competência excepcionais. A advogada tratou do meu caso com grande dedicação, obtendo um resultado que jamais teria esperado. Altamente recomendada."</p>
+        <p class="rev-text" data-lang="fr">«Professionnalisme et expertise exceptionnels. L'avocate a suivi mon dossier avec grande dévotion, obtenant un résultat que je n'aurais jamais espéré. Vivement recommandée.»</p>
+        <p class="rev-text" data-lang="ru">«Исключительный профессионализм. Адвокат вела моё дело с большой самоотдачей, добившись результата, о котором я не мечтал. Очень рекомендую.»</p>
+        <p class="rev-text" data-lang="pt">"Profissionalismo e competência excepcionais. A advogada tratou do meu caso com grande dedicação, obtendo um resultado que jamais teria esperado. Altamente recomendada."</p>
         <div class="rev-author">G.P.</div>
         <div class="rev-date">Google · 2024</div>
       </div>
@@ -1495,6 +1700,9 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <div class="rev-stars">★★★★★</div>
         <p class="rev-text" data-lang="it">"Ho affidato una questione penale delicata allo studio e sono rimasto colpito dalla serietà e dalla rapidità con cui è stata gestita. Sempre reperibile e disponibile a spiegare ogni passaggio."</p>
         <p class="rev-text" data-lang="en">"I entrusted a sensitive criminal matter to the firm and was impressed by the seriousness and speed with which it was handled. Always reachable and willing to explain every step."</p>
+        <p class="rev-text" data-lang="pt">"Confiei ao escritório uma questão penal delicada e fiquei impressionado com a seriedade e a rapidez com que foi tratada. Sempre disponível e pronto a explicar cada passo."</p>
+        <p class="rev-text" data-lang="fr">«J'ai confié au cabinet une affaire pénale délicate et j'ai été impressionné par le sérieux et la rapidité avec lesquels elle a été traitée. Toujours joignable.»</p>
+        <p class="rev-text" data-lang="ru">«Я доверил фирме деликатное уголовное дело и был впечатлён серьёзностью и скоростью его ведения. Всегда на связи и готова объяснить каждый шаг.»</p>
         <p class="rev-text" data-lang="pt">"Confiei ao escritório uma questão penal delicada e fiquei impressionado com a seriedade e a rapidez com que foi tratada. Sempre disponível e pronto a explicar cada passo."</p>
         <div class="rev-author">M.D.</div>
         <div class="rev-date">Google · 2024</div>
@@ -1504,12 +1712,18 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
         <p class="rev-text" data-lang="it">"Studio di altissimo livello. Segue i clienti con attenzione e con risultati concreti. Ho risolto una controversia lavorativa che trascinavo da anni in pochi mesi. Grazie di cuore."</p>
         <p class="rev-text" data-lang="en">"A top-level firm. They follow clients with great attention and deliver real results. I resolved a labour dispute I had been dragging for years in just a few months. Many thanks."</p>
         <p class="rev-text" data-lang="pt">"Um escritório de altíssimo nível. Acompanham os clientes com grande atenção e entregam resultados concretos. Resolvi um litígio trabalhista que arrastava há anos em apenas alguns meses. Muito obrigado."</p>
+        <p class="rev-text" data-lang="fr">«Un cabinet de très haut niveau. Ils suivent les clients avec une grande attention et livrent des résultats concrets. J'ai résolu en quelques mois un litige du travail qui durait depuis des années. Merci beaucoup.»</p>
+        <p class="rev-text" data-lang="ru">«Фирма высочайшего уровня. Они следят за клиентами с большим вниманием и добиваются реальных результатов. Большое спасибо.»</p>
+        <p class="rev-text" data-lang="pt">"Um escritório de altíssimo nível. Acompanham os clientes com grande atenção e entregam resultados concretos. Resolvi um litígio trabalhista que arrastava há anos em apenas alguns meses. Muito obrigado."</p>
         <div class="rev-author">L.T.</div>
         <div class="rev-date">Google · 2025</div>
       </div>
     </div>
     <div style="margin-top:1.5rem">
       <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="it">Visualizza tutte le recensioni →</a>
+      <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="pt">Ver todas as avaliações →</a>
+      <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="fr">Voir tous les avis →</a>
+      <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="ru">Все отзывы →</a>
       <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="en">View all reviews →</a>
       <a href="https://www.google.com/maps/search/Studio+Legale+Avvocato+Elena+Grasso+Lucera" target="_blank" rel="noopener" class="gmap-link" data-lang="pt">Ver todas as avaliações →</a>
     </div>
@@ -1521,53 +1735,68 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
   <div class="footer-main">
     <div class="footer-brand">
       <div class="logo-name">Studio Legale Avv. Elena Grasso</div>
-      <div class="logo-sub" style="margin-top:0.3rem" data-lang="it">Lucera · Dall'ottobre 1996</div>
+      <div class="logo-sub" style="margin-top:0.3rem" data-lang="it">Lucera · Dal ottobre 1996</div>
       <div class="logo-sub" style="margin-top:0.3rem" data-lang="en">Lucera · Since October 1996</div>
       <p data-lang="it">Studio legale multidisciplinare con sede a Lucera, al servizio di privati, imprese e istituzioni in Italia e in tutto il mondo.</p>
       <p data-lang="en">Multidisciplinary law firm based in Lucera, serving individuals, businesses and institutions in Italy and worldwide.</p>
+      <p data-lang="pt">Escritório de advocacia multidisciplinar com sede em Lucera, ao serviço de particulares, empresas e instituições em Itália e em todo o mundo.</p>
+      <p data-lang="fr">Cabinet d'avocats multidisciplinaire basé à Lucera, au service des particuliers, des entreprises et des institutions en Italie et dans le monde entier.</p>
+      <p data-lang="ru">Многопрофильная юридическая фирма со штаб-квартирой в Лучере, обслуживающая физических лиц, предприятия и организации в Италии и по всему миру.</p>
       <p data-lang="pt">Escritório de advocacia multidisciplinar com sede em Lucera, ao serviço de particulares, empresas e instituições em Itália e em todo o mundo.</p>
     </div>
     <div class="footer-col">
       <div class="footer-col-title" data-lang="it">Aree di Pratica</div>
       <div class="footer-col-title" data-lang="en">Practice Areas</div>
       <div class="footer-col-title" data-lang="pt">Áreas de Atuação</div>
+      <div class="footer-col-title" data-lang="fr">Domaines de Pratique</div>
+      <div class="footer-col-title" data-lang="ru">Области практики</div>
+      <div class="footer-col-title" data-lang="pt">Áreas de Atuação</div>
       <ul>
-        <li><a href="#aree" data-lang="it">Diritto Penale</a><a href="#aree" data-lang="en">Criminal Law</a><a href="#aree" data-lang="pt">Direito Penal</a></li>
-        <li><a href="#aree" data-lang="it">Diritto Civile</a><a href="#aree" data-lang="en">Civil Law</a><a href="#aree" data-lang="pt">Direito Civil</a></li>
-        <li><a href="#aree" data-lang="it">Diritto del Lavoro</a><a href="#aree" data-lang="en">Labour Law</a><a href="#aree" data-lang="pt">Direito do Trabalho</a></li>
-        <li><a href="#aree" data-lang="it">Dir. Amministrativo</a><a href="#aree" data-lang="en">Administrative Law</a><a href="#aree" data-lang="pt">Dir. Administrativo</a></li>
-        <li><a href="#aree" data-lang="it">Diritto Societario</a><a href="#aree" data-lang="en">Corporate Law</a><a href="#aree" data-lang="pt">Direito Societário</a></li>
-        <li><a href="#aree" data-lang="it">Dir. Bancario</a><a href="#aree" data-lang="en">Banking Law</a><a href="#aree" data-lang="pt">Dir. Bancário</a></li>
-        <li><a href="#aree" data-lang="it">Mediazione</a><a href="#aree" data-lang="en">Mediation</a><a href="#aree" data-lang="pt">Mediação</a></li>
-        <li><a href="#aree" data-lang="it">Recupero Crediti</a><a href="#aree" data-lang="en">Debt Recovery</a><a href="#aree" data-lang="pt">Rec. Créditos</a></li>
+        <li><a href="#aree" data-lang="it">Diritto Penale</a><a href="#aree" data-lang="en">Criminal Law</a><a href="#aree" data-lang="pt">Direito Penal</a><a href="#aree" data-lang="fr">Droit Pénal</a><a href="#aree" data-lang="ru">Уголовное право</a><a href="#aree" data-lang="pt">Direito Penal</a></li>
+        <li><a href="#aree" data-lang="it">Diritto Civile</a><a href="#aree" data-lang="en">Civil Law</a><a href="#aree" data-lang="pt">Direito Civil</a><a href="#aree" data-lang="fr">Droit Civil</a><a href="#aree" data-lang="ru">Гражданское право</a><a href="#aree" data-lang="pt">Direito Civil</a></li>
+        <li><a href="#aree" data-lang="it">Diritto del Lavoro</a><a href="#aree" data-lang="en">Labour Law</a><a href="#aree" data-lang="pt">Direito do Trabalho</a><a href="#aree" data-lang="fr">Droit du Travail</a><a href="#aree" data-lang="ru">Трудовое право</a><a href="#aree" data-lang="pt">Direito do Trabalho</a></li>
+        <li><a href="#aree" data-lang="it">Dir. Amministrativo</a><a href="#aree" data-lang="en">Administrative Law</a><a href="#aree" data-lang="pt">Dir. Administrativo</a><a href="#aree" data-lang="fr">Droit Administratif</a><a href="#aree" data-lang="ru">Административное право</a><a href="#aree" data-lang="pt">Dir. Administrativo</a></li>
+        <li><a href="#aree" data-lang="it">Diritto Societario</a><a href="#aree" data-lang="en">Corporate Law</a><a href="#aree" data-lang="pt">Direito Societário</a><a href="#aree" data-lang="fr">Droit des Sociétés</a><a href="#aree" data-lang="ru">Корпоративное право</a><a href="#aree" data-lang="pt">Direito Societário</a></li>
+        <li><a href="#aree" data-lang="it">Dir. Bancario</a><a href="#aree" data-lang="en">Banking Law</a><a href="#aree" data-lang="pt">Dir. Bancário</a><a href="#aree" data-lang="fr">Droit Bancaire</a><a href="#aree" data-lang="ru">Банковское право</a><a href="#aree" data-lang="pt">Dir. Bancário</a></li>
+        <li><a href="#aree" data-lang="it">Mediazione</a><a href="#aree" data-lang="en">Mediation</a><a href="#aree" data-lang="pt">Mediação</a><a href="#aree" data-lang="fr">Médiation</a><a href="#aree" data-lang="ru">Медиация</a><a href="#aree" data-lang="pt">Mediação</a></li>
+        <li><a href="#aree" data-lang="it">Recupero Crediti</a><a href="#aree" data-lang="en">Debt Recovery</a><a href="#aree" data-lang="pt">Rec. Créditos</a><a href="#aree" data-lang="fr">Recouvrement</a><a href="#aree" data-lang="ru">Взыскание долгов</a><a href="#aree" data-lang="pt">Rec. Créditos</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <div class="footer-col-title" data-lang="it">Lo Studio</div>
       <div class="footer-col-title" data-lang="en">The Firm</div>
       <div class="footer-col-title" data-lang="pt">O Escritório</div>
+      <div class="footer-col-title" data-lang="fr">Le Cabinet</div>
+      <div class="footer-col-title" data-lang="ru">О Фирме</div>
+      <div class="footer-col-title" data-lang="pt">O Escritório</div>
       <ul>
-        <li><a href="#studio" data-lang="it">Chi siamo</a><a href="#studio" data-lang="en">About us</a><a href="#studio" data-lang="pt">Sobre nós</a></li>
-        <li><a href="#contatti" data-lang="it">Contatti</a><a href="#contatti" data-lang="en">Contact</a><a href="#contatti" data-lang="pt">Contato</a></li>
-        <li><a href="mailto:grasso@grasso.law">grasso@grasso.law</a></li>
+        <li><a href="#studio" data-lang="it">Chi siamo</a><a href="#studio" data-lang="en">About us</a><a href="#studio" data-lang="pt">Sobre nós</a><a href="#studio" data-lang="fr">À propos</a><a href="#studio" data-lang="ru">О нас</a><a href="#studio" data-lang="pt">Sobre nós</a></li>
+        <li><a href="#contatti" data-lang="it">Contatti</a><a href="#contatti" data-lang="en">Contact</a><a href="#contatti" data-lang="pt">Contato</a><a href="#contatti" data-lang="pt">Contato</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#680f1a091b1b07280f1a091b1b074604091f"><span class="__cf_email__" data-cfemail="caadb8abb9b9a58aadb8abb9b9a5e4a6abbd">[email&#160;protected]</span></a></li>
       </ul>
     </div>
     <div class="footer-col">
       <div class="footer-col-title" data-lang="it">Informazioni Legali</div>
       <div class="footer-col-title" data-lang="en">Legal Information</div>
       <div class="footer-col-title" data-lang="pt">Informações Legais</div>
+      <div class="footer-col-title" data-lang="fr">Informations Légales</div>
+      <div class="footer-col-title" data-lang="ru">Правовая информация</div>
+      <div class="footer-col-title" data-lang="pt">Informações Legais</div>
       <ul>
-        <li><a href="#" data-lang="it">Privacy Policy</a><a href="#" data-lang="en">Privacy Policy</a><a href="#" data-lang="pt">Política de Privacidade</a></li>
-        <li><a href="#" data-lang="it">Cookie Policy</a><a href="#" data-lang="en">Cookie Policy</a><a href="#" data-lang="pt">Política de Cookies</a></li>
-        <li><a href="#" data-lang="it">Note Legali</a><a href="#" data-lang="en">Legal Notice</a><a href="#" data-lang="pt">Aviso Legal</a></li>
+        <li><a href="#" data-lang="it">Privacy Policy</a><a href="#" data-lang="en">Privacy Policy</a><a href="#" data-lang="pt">Política de Privacidade</a><a href="#" data-lang="fr">Politique de Confidentialité</a><a href="#" data-lang="ru">Политика конфиденциальности</a><a href="#" data-lang="pt">Política de Privacidade</a></li>
+        <li><a href="#" data-lang="it">Cookie Policy</a><a href="#" data-lang="en">Cookie Policy</a><a href="#" data-lang="pt">Política de Cookies</a><a href="#" data-lang="fr">Politique de Cookies</a><a href="#" data-lang="ru">Политика cookies</a><a href="#" data-lang="pt">Política de Cookies</a></li>
+        <li><a href="#" data-lang="it">Note Legali</a><a href="#" data-lang="en">Legal Notice</a><a href="#" data-lang="pt">Aviso Legal</a><a href="#" data-lang="fr">Mentions Légales</a><a href="#" data-lang="ru">Правовые оговорки</a><a href="#" data-lang="pt">Aviso Legal</a></li>
         <li><a href="https://www.grasso.law">grasso.law</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Studio Legale Avvocato Elena Grasso — <span data-lang="it">Tutti i diritti riservati</span><span data-lang="en">All rights reserved</span><span data-lang="pt">Todos os direitos reservados</span></span>
-    <span data-lang="it">Iscritta all'Ordine degli Avvocati di Foggia · Attiva dall'ottobre 1996</span>
+    <span>© 2026 Studio Legale Avvocato Elena Grasso — <span data-lang="it">Tutti i diritti riservati</span><span data-lang="en">All rights reserved</span><span data-lang="pt">Todos os direitos reservados</span><span data-lang="fr">Tous droits réservés</span><span data-lang="ru">Все права защищены</span><span data-lang="pt">Todos os direitos reservados</span></span>
+    <span data-lang="it">Iscritta all'Ordine degli Avvocati di Foggia · Attiva dal ottobre 1996</span>
     <span data-lang="en">Registered with the Foggia Bar Association · Active since October 1996</span>
+    <span data-lang="pt">Inscrita na Ordem dos Advogados de Foggia · Ativa desde outubro de 1996</span>
+    <span data-lang="fr">Inscrite au Barreau de Foggia · Active depuis octobre 1996</span>
+    <span data-lang="ru">Член Адвокатской палаты Фоджи · Работает с октября 1996 года</span>
     <span data-lang="pt">Inscrita na Ordem dos Advogados de Foggia · Ativa desde outubro de 1996</span>
   </div>
 </footer>
@@ -1580,149 +1809,108 @@ html[lang="pt"] [data-lang="pt"]{display:revert}
   <span class="wa-label-mob" data-lang="it">WhatsApp</span>
   <span class="wa-label-mob" data-lang="en">WhatsApp</span>
   <span class="wa-label-mob" data-lang="pt">WhatsApp</span>
+  <span class="wa-label-mob" data-lang="fr">WhatsApp</span>
+  <span class="wa-label-mob" data-lang="ru">WhatsApp</span>
+  <span class="wa-label-mob" data-lang="pt">WhatsApp</span>
 </a>
 
-<script>
-/* ══ LANGUAGE ══ */
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* LANGUAGE */
 function setLang(l){
   document.documentElement.lang=l;
-  ['it','en','pt'].forEach(c=>document.getElementById('btn-'+c).classList.toggle('on',l===c));
-  const titles={it:'Studio Legale Avvocato Elena Grasso | Lucera',en:'Law Firm Avvocato Elena Grasso | Lucera',pt:'Escritório de Advocacia Elena Grasso | Lucera'};
-  document.title=titles[l]||titles.it;
-  const descs={
-    it:'Studio Legale Avvocato Elena Grasso – Lucera, Foggia. Dal 1996. Diritto penale, civile, lavoro, amministrativo, societario, bancario. Assistenza in tutto il mondo.',
-    en:'Law Firm Avvocato Elena Grasso – Lucera, Foggia. Since 1996. Criminal, civil, labour, administrative, corporate and banking law. Worldwide assistance.',
-    pt:'Escritório de Advocacia Elena Grasso – Lucera, Foggia. Desde 1996. Direito penal, civil, trabalhista, administrativo, societário e bancário. Assistência em todo o mundo.'
-  };
-  const d=document.querySelector('meta[name="description"]');
-  if(d)d.content=descs[l]||descs.it;
-  // update textarea placeholder
-  const ta=document.getElementById('f-msg');
-  if(ta)ta.placeholder=ta.dataset[l]||'';
-  // update select to show correct options
+  ['it','en','pt','fr','ru'].forEach(function(c){var b=document.getElementById('btn-'+c);if(b)b.classList.toggle('on',l===c);});
+  var T={it:'Studio Legale Avvocato Elena Grasso | Lucera',en:'Law Firm Avvocato Elena Grasso | Lucera',pt:'Escritório de Advocacia Elena Grasso | Lucera',fr:'Cabinet Juridique Elena Grasso | Lucera',ru:'Юридическая Фирма Елена Грассо | Лучера'};
+  document.title=T[l]||T.it;
+  var D={it:'Studio Legale Avvocato Elena Grasso - Lucera. Dal 1996. Diritto penale, civile, lavoro, societario, bancario.',en:'Law Firm Avvocato Elena Grasso - Lucera. Since 1996. Criminal, civil, labour, corporate and banking law.',pt:'Escritório de Advocacia Elena Grasso - Lucera. Desde 1996. Direito penal, civil, trabalhista, societário.',fr:'Cabinet Juridique Elena Grasso - Lucera. Depuis 1996. Droit pénal, civil, du travail, des sociétés.',ru:'Юридическая фирма Елена Грассо - Лучера. С 1996. Уголовное, гражданское, трудовое, корпоративное право.'};
+  var d=document.querySelector('meta[name="description"]');if(d)d.content=D[l]||D.it;
+  var ta=document.getElementById('f-msg');if(ta)ta.placeholder=(ta.dataset[l]||ta.dataset['it']||'');
   syncSelect();
-  try{localStorage.setItem('g-lang',l)}catch(e){}
+  try{localStorage.setItem('g-lang',l);}catch(e){}
 }
-
 function syncSelect(){
-  // show only options for current lang
-  const lang=document.documentElement.lang;
-  document.querySelectorAll('#f-area option').forEach(o=>{
-    const ol=o.dataset.lang;
-    o.style.display=(!ol||ol===lang)?'':'none';
-    if(ol&&ol!==lang)o.disabled=true; else o.disabled=false;
-  });
+  var lang=document.documentElement.lang;
+  document.querySelectorAll('#f-area option').forEach(function(o){var ol=o.dataset.lang;o.style.display=(!ol||ol===lang)?'':'none';o.disabled=!!(ol&&ol!==lang);});
 }
-
 (function(){
-  let s;try{s=localStorage.getItem('g-lang')}catch(e){}
-  const lang=s||(navigator.language||'it').slice(0,2).toLowerCase();
-  setLang(lang==='it'?'it':lang==='pt'?'pt':'en');
+  var s;try{s=localStorage.getItem('g-lang');}catch(e){}
+  var lang=s||(navigator.language||'it').slice(0,2).toLowerCase();
+  var map={it:'it',pt:'pt',fr:'fr',ru:'ru'};
+  setLang(map[lang]||'en');
 })();
-
-/* ══ FORM → MAILTO ══ */
+/* FORM MAILTO */
 document.getElementById('contact-form').addEventListener('submit',function(e){
   e.preventDefault();
-  const lang=document.documentElement.lang;
-  const nome=document.getElementById('f-nome').value.trim();
-  const cognome=document.getElementById('f-cognome').value.trim();
-  const email=document.getElementById('f-email').value.trim();
-  const tel=document.getElementById('f-tel').value.trim();
-  const area=document.getElementById('f-area').value;
-  const msg=document.getElementById('f-msg').value.trim();
+  var lang=document.documentElement.lang;
+  var nome=document.getElementById('f-nome').value.trim();
+  var cognome=document.getElementById('f-cognome').value.trim();
+  var email=document.getElementById('f-email').value.trim();
+  var tel=document.getElementById('f-tel').value.trim();
+  var area=document.getElementById('f-area').value;
+  var msg=document.getElementById('f-msg').value.trim();
+  var errs={it:'Compilare tutti i campi (*)',en:'Fill in all required fields (*)',pt:'Preencha todos os campos (*)',fr:'Remplissez tous les champs (*)',ru:'Заполните все поля (*)'};
+  if(!nome||!cognome||!email||!area||!msg){alert(errs[lang]||errs.it);return;}
+  var np=nome+' '+cognome,te=(tel||'-');
+  var S={it:'[Studio Legale Avv. Elena Grasso] Consulenza - '+area+' - '+np,en:'[Law Firm Avv. Elena Grasso] Consultation - '+area+' - '+np,pt:'[Escritório Avv. Elena Grasso] Consulta - '+area+' - '+np,fr:'[Cabinet Avv. Elena Grasso] Consultation - '+area+' - '+np,ru:'[Юр.фирма Грассо] Консультация - '+area+' - '+np};
+  var B={
+    it:'Gentile Studio,
 
-  if(!nome||!cognome||!email||!area||!msg){
-    const errs={it:'Si prega di compilare tutti i campi obbligatori (*)',en:'Please fill in all required fields (*)',pt:'Por favor, preencha todos os campos obrigatórios (*)'};alert(errs[lang]||errs.it);return;
-  }
+Materia: '+area+'
+Nome: '+np+'
+Email: '+email+'
+Tel: '+te+'
 
-  const subjects={it:`[Studio Legale Avv. Elena Grasso] Richiesta di consulenza – ${area} – ${nome} ${cognome}`,en:`[Law Firm Avv. Elena Grasso] Consultation request – ${area} – ${nome} ${cognome}`,pt:`[Escritório Avv. Elena Grasso] Pedido de consulta – ${area} – ${nome} ${cognome}`};
-  const subject=subjects[lang]||subjects.it;
+'+msg+'
 
-  const bodyIT=
-`Gentile Studio Legale Avv. Elena Grasso,
+Cordiali saluti, '+np,
+    en:'Dear Firm,
 
-Vi contatto per richiedere una consulenza in merito a: ${area}
+Matter: '+area+'
+Name: '+np+'
+Email: '+email+'
+Phone: '+te+'
 
---- DATI DEL RICHIEDENTE ---
-Nome: ${nome} ${cognome}
-Email: ${email}
-Telefono: ${tel||'non fornito'}
+'+msg+'
 
---- MESSAGGIO ---
-${msg}
+Kind regards, '+np,
+    pt:'Prezado Escritório,
 
-Cordiali saluti,
-${nome} ${cognome}`;
+Matéria: '+area+'
+Nome: '+np+'
+E-mail: '+email+'
+Tel: '+te+'
 
-  const bodyEN=
-`Dear Law Firm of Avv. Elena Grasso,
+'+msg+'
 
-I am writing to request a consultation regarding: ${area}
+Atenciosamente, '+np,
+    fr:'Cher Cabinet,
 
---- APPLICANT DETAILS ---
-Name: ${nome} ${cognome}
-Email: ${email}
-Phone: ${tel||'not provided'}
+Matière: '+area+'
+Nom: '+np+'
+E-mail: '+email+'
+Tél: '+te+'
 
---- MESSAGE ---
-${msg}
+'+msg+'
 
-Kind regards,
-${nome} ${cognome}`;
+Cordialement, '+np,
+    ru:'Уважаемая фирма,
 
-  const bodyPT=
-`Prezado Escritório de Advocacia Avv. Elena Grasso,
+Вопрос: '+area+'
+Имя: '+np+'
+E-mail: '+email+'
+Тел: '+te+'
 
-Entro em contato para solicitar uma consulta sobre: ${area}
+'+msg+'
 
---- DADOS DO SOLICITANTE ---
-Nome: ${nome} ${cognome}
-E-mail: ${email}
-Telefone: ${tel||'não informado'}
-
---- MENSAGEM ---
-${msg}
-
-Atenciosamente,
-${nome} ${cognome}`;
-  const bodies={it:bodyIT,en:bodyEN,pt:bodyPT};
-  const body=bodies[lang]||bodies.it;
-  const mailto=`mailto:grasso@grasso.law?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href=mailto;
-
-  // Show confirmation
-  const m=document.getElementById('form-msg');
-  m.style.display='block';
-  const confirms={it:'Il suo client di posta si aprirà con il messaggio precompilato. Grazie per averci contattato.',en:'Your email client will open with a pre-filled message. Thank you for contacting us.',pt:'O seu cliente de e-mail será aberto com a mensagem pré-preenchida. Obrigado pelo contato.'};
-  m.textContent=confirms[lang]||confirms.it;
+С уважением, '+np
+  };
+  window.location.href='mailto:grasso@grasso.law?subject='+encodeURIComponent(S[lang]||S.it)+'&body='+encodeURIComponent(B[lang]||B.it);
+  var m=document.getElementById('form-msg');m.style.display='block';
+  var C={it:'Il client di posta si aprirà. Grazie.',en:'Your email client will open. Thank you.',pt:'O cliente de e-mail será aberto. Obrigado.',fr:'Votre messagerie va ouvrir. Merci.',ru:'Откроется почтовый клиент. Спасибо.'};
+  m.textContent=C[lang]||C.it;
 });
-
-/* ══ SCROLL REVEAL ══ */
-const ro=new IntersectionObserver(entries=>{
-  entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('in');ro.unobserve(el.target)}});
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-
-/* ══ STICKY NAV SHADE ══ */
-window.addEventListener('scroll',()=>{
-  document.querySelector('header').style.boxShadow=
-    window.scrollY>40?'0 4px 24px rgba(13,27,42,0.1)':'0 2px 20px rgba(13,27,42,0.06)';
-},{passive:true});
-
-/* ══ MOBILE MENU ══ */
-function toggleMenu(){
-  const ul=document.getElementById('nav-ul');
-  const open=ul.style.display==='flex';
-  ul.style.display=open?'':'flex';
-  ul.style.flexDirection='column';
-  ul.style.position='absolute';
-  ul.style.top='100%';
-  ul.style.left='0';ul.style.right='0';
-  ul.style.background='var(--warm-white)';
-  ul.style.borderBottom='1px solid var(--rule)';
-  ul.style.padding='0.5rem 0';
-  if(open)ul.removeAttribute('style');
-}
-</script>
-</body>
-</html>
+/* SCROLL REVEAL */
+var ro=new IntersectionObserver(function(entries){entries.forEach(function(el){if(el.isIntersecting){el.target.classList.add('in');ro.unobserve(el.target);}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+/* STICKY NAV */
+window.addEventListener('scroll',function(){requestAnimationFrame(function(){document.querySelector('header').style.boxShadow=window.scrollY>40?'0 4px 24px rgba(13,27,42,0.1)':'0 2px 20px rgba(13,27,42,0.06)';});},{passive:true});
+/* MOBILE
